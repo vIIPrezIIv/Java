@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+        <ui:composition template="./WEB-INF/layout.xhtml">
+            <ui:define name="top">
+                Login
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <div id="boxPadding" class="boxPadding">
+                        <label>User Name: </label>
+                        <h:inputText binding="#{userName}" value="event planner"/>
+                    </div>
+                    <div id="boxPadding" class="boxPadding">   
+                        <label>Password: </label>
+                        <h:inputText binding="#{password}" value="pwd2"/>
+                    </div>
+                    <div id="boxPadding" class="boxPadding">    
+                        <h:commandButton action="#{Controller.validateLogin(userName.value, password.value)}" value="Login"/>
+                    </div>
+                </h:form>
+                <pre>
+                    Event Planner: 
+                                User Name = event planner
+                                Password: pwd2
+                         
+                    Manager:
+                                User Name = manager
+                                Password = pwd1
+                </pre>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

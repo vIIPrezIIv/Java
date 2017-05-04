@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<eventList xmlns:ns2="AssignmentOne">
+    <event>
+        <endEventTime>02:01</endEventTime>
+        <eventEquip>Generator</eventEquip>
+        <eventName>Super</eventName>
+        <eventSite>Location A</eventSite>
+        <eventTime>12:35</eventTime>
+    </event>
+</eventList>

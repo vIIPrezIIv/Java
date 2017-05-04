@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <ui:composition template="./WEB-INF/layout.xhtml">
+            <ui:define name="top">
+                Add Event
+                <h:form>
+                    <!--<h:button onclick="history.go(-1);return false;" value="Back"/>-->
+                    <h:commandButton action="#{Controller.goToCalendar()}" value="Back"/>
+                </h:form>
+            </ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <div id="boxPadding" class="boxPadding">
+                        <label>Event Name</label>
+                        <h:inputText binding="#{eventName}" value="Camp Rally" required="true"/>
+                    </div>
+                    <div id="boxPadding" class="boxPadding">
+                        <label>Event Start Time</label>
+                        <h:inputText binding="#{eventStartTime}" value="12:30" validatorMessage="Incorrect format for start time (0:00)">
+                            <f:validateRegex pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}"/>
+                        </h:inputText>
+                    </div>
+                    <div id="boxPadding" class="boxPadding">
+                        <label>Event End Time</label>
+                        <h:inputText binding="#{eventEndTime}" value="1:00" validatorMessage="Incorrect format for end time (0:00)">
+                            <f:validateRegex pattern="([01]?[0-9]{1}|2[0-3]{1}):[0-5]{1}[0-9]{1}"/>
+                        </h:inputText>
+                    </div>
+                    <div id="boxPadding" class="boxPadding">
+                        <label>Event Location</label>
+                        <h:selectOneMenu binding="#{eventLocation}">
+                            <f:selectItems value="#{Controller.locationList}" var="location" itemValue="#{location.locationName}" itemLabel="#{location.locationName}"/>
+                        </h:selectOneMenu>
+                    </div>
+                    <div id="boxPadding" class="boxPadding">
+                        <label>Event Equipment</label>
+                        <h:selectOneMenu binding="#{eventEquipment}">
+                             <f:selectItems value="#{Controller.equipmentList}" var="location" itemValue="#{location.equipmentName}" itemLabel="#{location.equipmentName}"/>
+                        </h:selectOneMenu> 
+                    </div>
+                    <div id="boxPadding" class="boxPadding">
+                        <h:commandButton action="#{Controller.createEvent(eventName.value, eventStartTime.value, eventEndTime.value, eventLocation.value, eventEquipment.value)}" value="Create Event"/>
+                    </div>
+                </h:form> 
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

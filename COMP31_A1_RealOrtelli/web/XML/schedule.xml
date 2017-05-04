@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<scheduleList xmlns:ns2="AssignmentOne">
+    <employee>
+        <name>Real Ortelli</name>
+        <startTime>14:34</startTime>
+        <endTime>15:45</endTime>
+    </employee>
+</scheduleList>
